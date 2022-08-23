@@ -21,20 +21,22 @@ class RegistrationFormType extends AbstractType
                 'type' => PasswordType::class,
                 'first_options' => [
                     'attr' => [
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'placeholder' => "********"
                     ],
                     'label' => 'Mot de passe',
                     'label_attr' => [
-                        'class' => "label-form mt-4"
+                        'class' => "label-form mt-3"
                     ]
                 ],
                 'second_options' => [
                     'attr' => [
-                        'class' => 'form-control'
+                        'class' => 'form-control',
+                        'placeholder' => "********"
                     ],
                     'label' => 'Confirmation du mot de passe',
                     'label_attr' => [
-                        'class' => "label-form mt-4"
+                        'class' => "label-form mt-3"
                     ]
                 ],
                 'invalid_message' => 'Le mot de passe est incorrect.',
