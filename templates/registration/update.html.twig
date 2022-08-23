@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Modification {% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row d-flex align-items-center">
+        <div class="col-lg-6 align-self-start">
+            <lottie-player
+            autoplay
+            loop
+            speed="0.5"
+            mode="normal"
+            src="https://assets4.lottiefiles.com/private_files/lf30_hkykoylh.json"
+            style="heigth: 100%"
+            >
+            </lottie-player>
+        </div>
+        <div class="col-lg-6 mb-4">
+        <section class="card">
+            <div class="card-body text-secondary">
+                    <div class="text-center">
+                        <h1 class="h3 font-weight-normal"><i class="bi bi-person"></i> Informations </h1>
+                    </div>
+                    <form name="user" method="post" class="mb-4">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-6">
+                                {{ form_row(updateForm.email, {
+                                    label: 'Adresse e-mail',
+                                    'label_attr' : { class: 'label-form mt-3'},
+                                    attr:{ class: 'form-control', placeholder:"e-mail"}
+                                }) }}
+                            </div>
+                            <div class="col-lg-6">
+                                {{ form_row(updateForm.pseudo, {
+                                label: 'Pseudo',
+                                'label_attr' : { class: 'label-form mt-3'},
+                                attr: { class: 'form-control', placeholder:"pseudo"}
+                            }) }}
+                            </div>
+                        </div>
+                            {{ form_row(updateForm.nom, {
+                                label: 'Nom et Prénom',
+                                'label_attr' : { class: 'label-form mt-3'},
+                                attr: { class: 'form-control', placeholder:"Nom"}
+                            }) }}
+                        {{ form_row(updateForm._token)}}
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" id="user_submit" name="user[submit]" class="btn btn-primary mt-3"> Modifier </button>
+                        </div>
+                </form>
+            </div>
+        </section>
+        </div>
+    </div>
+</div>
+{% endblock %}

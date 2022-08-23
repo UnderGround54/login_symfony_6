@@ -10,7 +10,26 @@
             <link rel="stylesheet" href="{{ asset('assets/css/_bootswatch.scss') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/_variables.scss') }}">
+            <link href="{{ asset('http://fonts.cdnfonts.com/css/roboto') }}" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css') }}">
+            <style>
+                body {
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 100%;
+                    }
+                table {
+                    border-collapse: collapse;
+                    border-radius: 1em;
+                    overflow: hidden;
+                }
+                thead {
+                    background-color: #a742f5;
+                    color: #212529;
+                    border-collapse: collapse;
+                    border-radius: 1em;
+                    overflow: hidden;
+                }
+            </style>
         {% endblock %}
 
         {% block javascripts %}
@@ -32,8 +51,8 @@
             {#  #}
         {% endblock %}
 
-        {% block footer %}
+        {# {% block footer %}
             {% include "partiels/_footer.html.twig" %}
-        {% endblock %}
+        {% endblock %} #}
     </body>
 </html>

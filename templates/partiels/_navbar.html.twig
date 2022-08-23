@@ -5,20 +5,19 @@
       <ul class="navbar-nav me-auto">
        
           <li class="nav-item">
-          <a class="nav-link active" href=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> liste
+          <a class="nav-link active" href="{{ path('user.list') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><i class="bi bi-person-lines-fill"></i> liste
           </a>
           </li>
       </ul>
       <div class="d-flex">
       <form class="d-flex">
-        <input class="form-control" type="text" placeholder="Chercher">
-        {# <button class="btn btn-secondary my-2 my-sm-0" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chercher</font></font></button> #}
+        <input class="form-control me-4" style="height: 100%;" type="text" placeholder="Chercher">
       </form>
-        <ul class="navbar-nav me-5">
+        <ul class="navbar-nav me-4">
           <li class="nav-item dropdown me-3">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="bi bi-person-circle"></i> {{ (app.user is same as(null)) ?  "Connexion" : app.user.nom}}</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{ path('user.logout')}}">Informations </a>
+                <a class="dropdown-item" href="{{ path('user.update',{ 'id': app.user.id })}}"> Informations </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ path('user.logout')}}">Se deconnecter </a>
             </div>

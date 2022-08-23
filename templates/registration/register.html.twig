@@ -12,40 +12,44 @@
             speed="0.5"
             mode="normal"
             src="https://assets3.lottiefiles.com/packages/lf20_xyadoh9h.json"
+            style="heigth: 100%"
             >
             </lottie-player>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 mb-4">
         <section class="card">
             <div class="card-body text-secondary">
-                <form method="post">
                     <div class="text-center">
                         <h1 class="h3 font-weight-normal"><i class="bi bi-person"></i> Inscription </h1>
                     </div>
-                        {{ form_start(registrationForm) }}
+                    {{ form_start(registrationForm) }}
+                    <div class="row d-flex align-items-center">
+                        <div class="col-lg-6">
                             {{ form_row(registrationForm.email, {
                                 label: 'Adresse e-mail',
                                 'label_attr' : { class: 'label-form mt-3'},
                                 attr:{ class: 'form-control', placeholder:"e-mail"}
                             }) }}
+                        </div>
+                        <div class="col-lg-6">
+                            {{ form_row(registrationForm.pseudo, {
+                            label: 'Pseudo',
+                            'label_attr' : { class: 'label-form mt-3'},
+                            attr: { class: 'form-control', placeholder:"pseudo"}
+                        }) }}
+                        </div>
+                    </div>
                             {{ form_row(registrationForm.nom, {
                                 label: 'Nom et Prénom',
                                 'label_attr' : { class: 'label-form mt-3'},
                                 attr: { class: 'form-control', placeholder:"Nom"}
                             }) }}
-                            {{ form_row(registrationForm.pseudo, {
-                                label: 'Pseudo',
-                                'label_attr' : { class: 'label-form mt-3'},
-                                attr: { class: 'form-control', placeholder:"pseudo"}
-                            }) }}
-                            {{ form_row(registrationForm.plainPassword, {
-                                label: 'Password'
-                            }) }}
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <button type="submit" class="btn btn-primary mt-3"> Enrégistrer </button>
-                            </div>
-                        {{ form_end(registrationForm) }}
-                </form>
+                        {{ form_row(registrationForm.plainPassword) }}
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button type="submit" class="btn btn-primary mt-3"> Enrégistrer </button>
+                        </div>
+                    {{ form_end(registrationForm) }}
+                
                 <div class="text-center mt-4">
                     Vous avez déjà un compte ? <a href="{{ path('user.login')}}" class="text-decoration-none" style="color: #6f42c1"> connectez-vous ici </a>
                 </div>

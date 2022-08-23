@@ -5,12 +5,13 @@
 {% block body %}
 <div class="container mt-4">
   <table class="table table-hover">
-  <thead>
+    <thead>
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Email</th>
         <th scope="col">Nom et Prénom</th>
         <th scope="col">Pseudo </th>
+        <th scope="col">Action </th>
       </tr>
     </thead>
     {% for user in users %}
@@ -21,6 +22,10 @@
         <td>{{ user.email }}</td>
         <td>{{ user.nom }}</td>
         <td>{{ user.pseudo }}</td>
+        <td class="">
+          <a href="{{ path('user.update', { 'id': user.id }) }}" class="btn btn-primary btn-sm"> <i class="bi bi-pencil-square"></i> </a> 
+          <a href="{{ path('user.delete', { 'id': user.id }) }}" class="btn btn-secondary btn-sm"><i class="bi bi-trash3-fill"></i></a>
+        </td>
       </tr>
       {% else %}
       <tr class="table-dark">
@@ -28,6 +33,10 @@
         <td>{{ user.email }}</td>
         <td>{{ user.nom }}</td>
         <td>{{ user.pseudo }}</td>
+        <td class="">
+          <a href="{{ path('user.update', { 'id': user.id }) }}" class="btn btn-primary btn-sm"> <i class="bi bi-pencil-square"></i> </a> 
+          <a href="{{ path('user.delete', { 'id': user.id }) }}" class="btn btn-secondary btn-sm"><i class="bi bi-trash3-fill"></i></a>
+        </td>
       </tr>
       {% endif %}
     </tbody>
