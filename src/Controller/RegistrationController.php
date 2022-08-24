@@ -20,6 +20,8 @@ class RegistrationController extends AbstractController
     #[Route('/inscription', name: 'user.registration')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
+        // throw $this->createNotFoundException('404 non trouvé');
+        
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -57,7 +59,7 @@ class RegistrationController extends AbstractController
             'users' => $repository->findAll(),
         ]);
     }
-
+    
     #[Security("is_granted('ROLE_USER')")]
     #[Route('/suppression/{id}', name: 'user.delete', methods: 'GET')]
     public function delete(EntityManagerInterface $manager, User $user): Response

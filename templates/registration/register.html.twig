@@ -2,6 +2,10 @@
 
 {% block title %} Inscription {% endblock %}
 
+{% block head %}
+    
+{% endblock %}
+
 {% block body %}
 <div class="container mt-4">
     <div class="row d-flex align-items-center">
@@ -36,7 +40,7 @@
                             label: 'Pseudo',
                             'label_attr' : { class: 'label-form mt-3'},
                             attr: { class: 'form-control', placeholder:"pseudo"}
-                        }) }}
+                            }) }}
                         </div>
                     </div>
                             {{ form_row(registrationForm.nom, {
@@ -44,7 +48,7 @@
                                 'label_attr' : { class: 'label-form mt-3'},
                                 attr: { class: 'form-control', placeholder:"Nom"}
                             }) }}
-                        {{ form_row(registrationForm.plainPassword) }}
+                            {{ form_row(registrationForm.plainPassword) }}
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <button type="submit" class="btn btn-primary mt-3"> Enrégistrer </button>
                         </div>
@@ -58,4 +62,8 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block footer %}
+    
 {% endblock %}
