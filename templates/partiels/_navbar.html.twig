@@ -9,13 +9,13 @@
           </li>
       </ul>
       <div class="d-flex">
-        <ul class="navbar-nav me-4">
+        <ul class="navbar-nav me-5">
           <li class="nav-item dropdown me-3">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="bi bi-person-circle"></i> {{ (app.user is same as(null)) ?  "Connexion" : app.user.nom}}</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{ path('user.update',{ 'id': app.user.id })}}"> Informations </a>
+                <a class="dropdown-item" href="{{ path('user.update',{ 'id': app.user.id })}}"><i class="bi bi-info-circle-fill"></i> Informations </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ path('user.logout')}}">Se deconnecter </a>
+                <a class="dropdown-item" href="{{ path('user.logout')}}"><i class="bi bi-door-open-fill"></i> Se deconnecter </a>
             </div>
           </li>
         </ul>

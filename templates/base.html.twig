@@ -8,10 +8,9 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
             <link rel="stylesheet" href="{{ asset('assets/css/_bootswatch.scss') }}">
-            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/_variables.scss') }}">
-            <link href="{{ asset('http://fonts.cdnfonts.com/css/roboto') }}" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
             <style>
                 .main {
                         font-family: 'Roboto', sans-serif;
@@ -39,8 +38,6 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
             <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-            <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('assets/js/bootstrap.min.js.map') }}"></script>
             <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script>
             <script src="{{ asset('https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js') }}"></script>
             <script src="{{ asset('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js') }}"></script>

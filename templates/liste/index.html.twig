@@ -4,6 +4,9 @@
 
 {% block body %}
 <div class="container mt-4 main">
+{% block message %}
+  {% include "partiels/_message.html.twig" %}
+{% endblock %}
   <table class="table table-hover">
     <thead>
       <tr>
@@ -23,8 +26,7 @@
         <td>{{ user.pseudo }}</td>
         <td class="">
         {% if app.user.id == user.id %}
-            <a href="{{ path('user.update', { 'id': user.id }) }}" class="btn btn-primary btn-sm"> <i class="bi bi-pencil-square"></i> </a> 
-            <a href="{{ path('user.delete', { 'id': user.id }) }}" class="btn btn-secondary btn-sm"><i class="bi bi-trash3-fill"></i></a>
+          <a href="{{ path('user.update', { 'id': user.id }) }}" class="btn btn-primary btn-sm"> <i class="bi bi-pencil-square"></i> </a> 
         {% endif %}
         </td>
         

@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -28,6 +29,7 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password
+            $user->setRoles(['ROLE_USER']);
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -37,7 +39,10 @@ class RegistrationController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
+            $this->addFlash(
+                'succes',
+                'Votre compte à été créer avec succes !'
+            );
 
             return $userAuthenticator->authenticateUser(
                 $user,
@@ -59,10 +64,10 @@ class RegistrationController extends AbstractController
             'users' => $repository->findAll(),
         ]);
     }
-    
+
     #[Security("is_granted('ROLE_USER')")]
     #[Route('/suppression/{id}', name: 'user.delete', methods: 'GET')]
-    public function delete(EntityManagerInterface $manager, User $user): Response
+    public function delete(EntityManagerInterface $manager, User $user, Request $request): Response
     {
         if (!$user) {
             $this->addFlash(
@@ -73,12 +78,10 @@ class RegistrationController extends AbstractController
         } else {
             $manager->remove($user);
             $manager->flush();
+            $session = new Session();
+            $session->invalidate();
 
-            $this->addFlash(
-                'succes',
-                'Votre Utilisateur à été supprimer avec succes !'
-            );
-            return $this->redirectToRoute('user.list');
+            return $this->redirectToRoute('user.login');
         }
     }
     #[Security("is_granted('ROLE_USER')")]
@@ -95,7 +98,7 @@ class RegistrationController extends AbstractController
 
             $this->addFlash(
                 'succes',
-                'Votre Utilisateur à été modifier avec succes !'
+                'Modification avec succes !'
             );
             return $this->redirectToRoute('user.list');
         }
