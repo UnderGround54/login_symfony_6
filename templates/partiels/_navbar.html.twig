@@ -1,14 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav me-auto">
-       
-          <li class="nav-item">
-          <a class="nav-link active" href="{{ path('user.list') }}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><i class="bi bi-person-lines-fill"></i> liste
-          </a>
-          </li>
-      </ul>
-      <div class="d-flex">
+    <a class="navbar-brand" href="{{ path('user.list') }}"><i class="bi bi-person-lines-fill"></i> liste</a>
+    <div class="d-flex">
         <ul class="navbar-nav me-5">
           <li class="nav-item dropdown me-3">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="bi bi-person-circle"></i> {{ (app.user is same as(null)) ?  "Connexion" : app.user.nom}}</a>
@@ -20,6 +13,5 @@
           </li>
         </ul>
       </div>
-    </div>
   </div>
 </nav>
